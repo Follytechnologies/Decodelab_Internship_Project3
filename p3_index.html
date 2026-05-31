@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zestro — Food Ordering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="p3_style.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ───────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">🍽 Zestro</a>
+      <div class="nav-right">
+        <span class="nav-tag">Free delivery over ₹499</span>
+        <!-- Dark Mode Toggle -->
+        <button class="js-dark-toggle dark-btn" aria-label="Toggle dark mode">
+          <span class="js-dark-icon">🌙</span>
+        </button>
+        <!-- Cart Button -->
+        <button class="js-cart-open cart-btn" aria-label="Open cart">
+          🛒 Cart
+          <span class="js-cart-count cart-count is-hidden">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <header class="hero">
+    <div class="container">
+      <p class="hero-sub">Fresh. Fast. Flavourful.</p>
+      <h1>What are you <em>craving</em> today?</h1>
+      <!-- Search Bar -->
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input
+          id="js-search"
+          class="search-input"
+          type="text"
+          placeholder="Search for dishes, cuisines…"
+          aria-label="Search menu"
+        />
+        <button class="js-search-clear search-clear is-hidden" aria-label="Clear search">✕</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── MAIN ─────────────────────────────────────────────────── -->
+  <main class="main container">
+
+    <!-- Filter Pills -->
+    <section class="filters" aria-label="Menu filters">
+      <button class="js-filter filter-pill is-active" data-filter="all">🍽 All</button>
+      <button class="js-filter filter-pill" data-filter="starters">🥗 Starters</button>
+      <button class="js-filter filter-pill" data-filter="mains">🍛 Mains</button>
+      <button class="js-filter filter-pill" data-filter="burgers">🍔 Burgers</button>
+      <button class="js-filter filter-pill" data-filter="pizza">🍕 Pizza</button>
+      <button class="js-filter filter-pill" data-filter="desserts">🍮 Desserts</button>
+      <button class="js-filter filter-pill" data-filter="drinks">🥤 Drinks</button>
+    </section>
+
+    <!-- Results info -->
+    <p class="js-result-info result-info"></p>
+
+    <!-- Menu Grid -->
+    <section class="menu-grid" id="js-menu-grid" aria-live="polite">
+      <!-- Cards injected by JS -->
+    </section>
+
+    <!-- Empty state -->
+    <div class="js-empty empty-state is-hidden">
+      <p class="empty-icon">🍽</p>
+      <h3>No dishes found</h3>
+      <p>Try a different search or filter.</p>
+    </div>
+
+  </main>
+
+  <!-- ── CART DRAWER ───────────────────────────────────────────── -->
+  <div class="js-cart-overlay cart-overlay" aria-hidden="true"></div>
+
+  <aside class="js-cart-drawer cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-header">
+      <h2>Your Order 🛒</h2>
+      <button class="js-cart-close cart-close-btn" aria-label="Close cart">✕</button>
+    </div>
+
+    <div class="js-cart-body cart-body">
+      <!-- Cart items injected by JS -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span class="js-subtotal">₹0</span>
+        </div>
+        <div class="summary-row">
+          <span>Delivery</span>
+          <span class="js-delivery">₹49</span>
+        </div>
+        <div class="summary-row summary-row--total">
+          <span>Total</span>
+          <span class="js-total">₹49</span>
+        </div>
+      </div>
+      <button class="js-checkout checkout-btn" disabled>Place Order</button>
+    </div>
+  </aside>
+
+  <!-- ── ORDER SUCCESS TOAST ───────────────────────────────────── -->
+  <div class="js-toast toast is-hidden" role="alert" aria-live="assertive">
+    ✅ Order placed! Estimated delivery: <strong>30 mins</strong>
+  </div>
+
+  <script src="p3_script.js"></script>
+</body>
+</html>
